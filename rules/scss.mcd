@@ -1,0 +1,72 @@
+---
+description: SCSS Cursor Rules
+globs: *.scss
+alwaysApply: false
+---
+
+# SCSS/Sass Best Practices
+
+## Organization
+- Use a consistent file structure.
+- Split styles into modular components.
+- Use partial files with `_prefix`.
+- Create a main entry file to import all partials.
+
+## Variables
+- Define variables for colors, spacing, and fonts.
+- Create meaningful variable names.
+- Use maps for related values.
+- Implement variable scoping to avoid naming collisions.
+
+## Mixins
+- Create reusable mixins for common patterns.
+- Use parameters for flexible mixins.
+- Group related mixins in separate files.
+- Document mixin parameters for clarity.
+
+## Functions
+- Write pure functions for calculations.
+- Return values of consistent types.
+- Use built-in functions when available.
+- Create utility functions for common tasks.
+
+## Nesting
+- Limit nesting to 3 levels deep.
+- Use parent selector `&` for modifiers and states.
+- Avoid descendant selectors when possible.
+- Use nesting for media queries for clarity.
+
+## Extensions
+- Use `@extend` sparingly.
+- Prefer mixins over `@extend` for flexibility.
+- Only extend placeholder selectors.
+- Avoid extending across different media queries.
+
+## Media Queries
+- Use variables for breakpoints.
+- Create media query mixins.
+- Practice a mobile-first approach.
+- Group related media queries together.
+
+## Naming Conventions
+- Use BEM (Block Element Modifier) methodology or a similar strategy.
+- Create consistent class naming patterns.
+- Avoid excessive abbreviations.
+- Use kebab-case for class names.
+
+## Performance
+- Avoid deep nesting that compiles to inefficient CSS.
+- Minimize use of `@extend`.
+- Optimize selector specificity.
+- Use CSS custom properties when runtime changes are needed.
+
+## Best Practices
+- Comment complex code sections.
+- Create a style guide for consistency.
+- Use source maps for debugging.
+- Lint SCSS with Stylelint or similar tools.
+- Use PostCSS pipelines if helpful (e.g., autoprefixing, linting).
+
+## Reference
+- Official docs: https://sass-lang.com/documentation
+- Sass guidelines: https://sass-guidelin.es

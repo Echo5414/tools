@@ -1,0 +1,69 @@
+---
+description: Svelte Cursor Rules
+globs: *.svelte, *.ts
+alwaysApply: false
+---
+
+# Svelte Best Practices
+
+## Component Structure
+- Use `.svelte` extension for components.
+- Keep components small and focused.
+- Use `<script>`, markup, and `<style>` sections effectively.
+- Organize imports logically at the top of the `<script>` block.
+
+## Svelte 5 Runes
+- Use `$state()` for reactive state.
+- Use `$derived` for computed values.
+- Use `$effect` for side effects and lifecycle management.
+- Use `$props()` for component props.
+- Use `$bindable()` for two-way binding.
+- Use `$inspect` for debugging (development only).
+
+## State Management
+- Use `$state` for local component state.
+- Create state classes for complex state machines.
+- Use the context API for shared state.
+- Use stores only when truly necessary.
+
+## Reactivity
+- Let Svelte handle reactivity with `$state`.
+- Avoid imperative DOM manipulation.
+- Use `$effect.root()` for isolated effects.
+- Use `$effect.tracking()` for optimized dependency tracking.
+
+## Events
+- Use `on:event` handlers with modifiers.
+- Create custom events with `createEventDispatcher`.
+- Forward events with `on:event`.
+- Use `event.stopPropagation()` sparingly.
+
+## Bindings
+- Use `bind:property` for two-way binding.
+- Create bindable props with `$bindable()`.
+- Use `bind:this` for DOM references.
+- Keep track of multiple bindings in an organized way.
+
+## Component Communication
+- Use props for parent-to-child communication.
+- Use events for child-to-parent communication.
+- Use context for distant relatives.
+- Use stores for unrelated components or global data.
+
+## Transitions & Animations
+- Use built-in transition directives (e.g., `transition:fade`).
+- Combine transitions with `in:`/`out:` for enter/exit.
+- Use `crossfade` for list item transitions.
+- Use `animate:flip` for list reorder animations.
+
+## Best Practices
+- Use `$$props` and `$$restProps` sparingly.
+- Avoid deeply nested components.
+- Use slot props for flexible component composition.
+- Leverage Svelte's auto-subscriptions for store updates.
+- Consider bundlers like Vite or esbuild for efficient builds.
+
+## Reference
+- Official docs: https://svelte.dev/docs
+- Svelte 5 Runes: https://svelte-5-preview.vercel.app/docs/runes
+- LLM guide: https://svelte.dev/docs/llms

@@ -1,0 +1,71 @@
+---
+description: TypeScript Cursor Rules
+globs: *.ts
+alwaysApply: false
+---
+
+# TypeScript Best Practices
+
+## Type Definitions
+- Prefer interfaces for object types.
+- Use `type` for unions, intersections, and utility types.
+- Create descriptive type names.
+- Use `readonly` for immutable properties.
+
+## Type Annotations
+- Provide return types for functions.
+- Use type inference for variable initialization.
+- Annotate function parameters.
+- Use type assertions sparingly and only when certain.
+
+## Interfaces
+- Define clear interface boundaries.
+- Extend interfaces for specialization.
+- Use interface merging strategically.
+- Keep interfaces focused and cohesive.
+
+## Generics
+- Use generics for reusable components (e.g., <T>).
+- Constrain generic types when possible.
+- Create descriptive generic parameter names.
+- Use multiple type parameters if it clarifies logic.
+
+## Type Safety
+- Enable `strict` mode in `tsconfig.json`.
+- Avoid using `any`; use `unknown` if uncertain.
+- Use `never` for exhaustive checks.
+- Emphasize compile-time checks to reduce runtime errors.
+
+## Advanced Types
+- Use discriminated unions for state management.
+- Leverage conditional types for complex logic.
+- Use mapped types for transformations.
+- Implement utility types (Partial, Pick, Omit, etc.) for common patterns.
+
+## Enums
+- Prefer `as const` objects or union types over traditional enums if possible.
+- Use string literal unions for type-safe strings.
+- Create numeric literal types when truly needed.
+- Keep enums small and descriptive if you must use them.
+
+## Error Handling
+- Create custom error types for domain logic.
+- Use `Result` types for error returns in functional code.
+- Implement try/catch blocks for async code.
+- Use type guards for narrowing down possible error states.
+
+## Configuration
+- Use project references for monorepos.
+- Configure incremental compilation in `tsconfig`.
+- Set appropriate `lib` settings (e.g., "ES2020", "DOM").
+- Enable source maps for debugging.
+
+## Tooling
+- Use ESLint with the TypeScript parser.
+- Configure Prettier for consistent formatting.
+- Use `tsc --noEmit` for type checking in CI.
+- Implement pre-commit hooks (Husky, lint-staged) for validation.
+
+## Reference
+- Official docs: https://www.typescriptlang.org/docs
+- TypeScript handbook: https://www.typescriptlang.org/docs/handbook/intro.html

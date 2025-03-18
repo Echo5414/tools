@@ -1,55 +1,92 @@
 ---
 description: SvelteKit Cursor Rules
-globs: *.svelte
+globs: *.svelte, *.ts
 alwaysApply: false
 ---
+
 # SvelteKit Best Practices
 
-## File Structure
-- Pages should be in `src/routes` following SvelteKit's file-based routing
-- Components should be in `src/lib/components`
-- Stores should be in `src/lib/stores`
-- Types should be in `src/lib/types`
-- Utilities should be in `src/lib/utils`
+## Project Structure
+- Follow SvelteKit's convention-based file structure.
+- Use `src/routes` for pages and API endpoints.
+- Store reusable components in `src/lib/components`.
+- Place utility functions in `src/lib/utils`.
+- Keep stores in `src/lib/stores`.
+- Define shared types in `src/lib/types`.
 
-## Coding Standards
-- Use `$page` store for page data
-- Use `$app/stores` for app stores
-- Use `$app/navigation` for navigation
-- Use `+page.svelte` for UI components
-- Use `+page.server.ts` for server-side code
-- Use `+page.ts` for page data loading
-- Use `+layout.svelte` for layout components
-- Use `+error.svelte` for error pages
+## Routing
+- Utilize file-based routing with `+page.svelte`.
+- Implement dynamic routes using `[slug]` or `[id].svelte`.
+- Use named layouts with `+layout.svelte`.
+- Create error boundaries with `+error.svelte`.
 
-## Best Practices
-- Prefer server components for data fetching
-- Use form actions for form submissions
-- Use event delegation for event handling
-- Implement progressive enhancement
-- Use `<svelte:head>` for document head
-- Use `data-sveltekit-preload-data` for preloading
-- Use `<svelte:window>` for window events
-- Use `invalidateAll()` for cache invalidation
+## Data Loading
+- Use `+page.server.js` for server-only code.
+- Implement `load()` functions for data fetching.
+- Return structured data from `load()` functions.
+- Use `depends()` for invalidation triggers.
+- Access page data via the `$page` store.
 
-## Optimization
-- Use `export const prerender = true` for static pages
-- Use `export const ssr = false` for client-only pages
-- Use `export const csr = false` for server-only pages
-- Import only what you need from `$app/*`
-- Use `$lib` alias for internal imports
+## Forms
+- Use form actions with `+page.server.js`.
+- Implement progressive enhancement for no-JS scenarios.
+- Handle validation errors server-side.
+- Return structured errors to the client.
+- Take advantage of form actions for streamlined submission.
 
-https://svelte.dev/llms-full.txt
+## Server vs. Client
+- Use `$app/environment` to detect SSR vs. client.
+- Put authentication logic in `hooks.server.js`.
+- Leverage environment variables for config.
+- Keep sensitive logic server-side.
+- Use `export const ssr = false` for client-only pages.
+- Use `export const csr = false` for server-only pages.
 
-SvelteKit Official Documentation:  https://svelte.dev/docs/kit
-https://svelte.dev/docs/kit/llms.txt
+## API Routes
+- Create API endpoints in `src/routes/api`.
+- Use SvelteKit's `Request/Response` API.
+- Implement proper status codes and error handling.
+- Structure API responses consistently.
 
-Creating a project
+## Deployment
+- Use the appropriate adapter (e.g., @sveltejs/adapter-node).
+- Set `prerender` options for static pages if needed.
+- Configure service workers for offline support.
+- Use `build.outDir` for custom output directories.
+- Integrate with CI/CD pipelines for automated tests and deployments.
+
+## Performance
+- Implement SSR for dynamic content.
+- Use SSG (static site generation) with `prerender` for static content.
+- Lazy load routes with `import()`.
+- Stream responses for large data or partial hydration.
+- Use `export const prerender = true` for static pages.
+- Use `data-sveltekit-preload-data` for preloading.
+- Use `invalidateAll()` to refresh data caches.
+
+## Authentication
+- Use `hooks.server.js` for auth middleware.
+- Implement JWT or session-based auth.
+- Create protected routes with `redirect()`.
+- Store auth data in cookies or `locals`.
+
+## UI Components
+- Use `<svelte:head>` for document metadata.
+- Use `<svelte:window>` for window-level events.
+- Use event delegation where feasible for performance.
+- Import only what you need from `$app/*`.
+- Use `$lib` alias for referencing local code.
+
+## Creating a project
 ```
 npx sv create my-app
 cd my-app
 npm install
 ```
 
-Running the project
+## Running the project
 `npm run dev`
+
+## Reference
+- Official docs: https://kit.svelte.dev/docs
+- SvelteKit LLM guide: https://svelte.dev/docs/llms

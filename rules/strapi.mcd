@@ -1,0 +1,73 @@
+---
+description: Strapi Cursor Rules
+globs: *.ts, *.js, *.json
+alwaysApply: false
+---
+
+# Strapi Best Practices
+
+## Project Structure
+- Use Strapi's content-type builder for data models.
+- Organize API endpoints with controllers and services.
+- Implement custom middlewares in `config/middlewares`.
+- Create reusable components for content types.
+- Keep the `config` directory well-organized (plugins, environments).
+
+## Content Types
+- Define clear content type structures.
+- Use relations for connected data.
+- Implement validation rules for fields.
+- Create components for reusable field groups.
+
+## API Development
+- Extend core controllers with custom logic.
+- Use services for business logic.
+- Create policies for access control.
+- Use middlewares for request processing.
+
+## Authentication
+- Use JWT authentication with proper expiration.
+- Implement role-based permissions.
+- Create custom auth providers when needed.
+- Leverage Strapi’s built-in permissions system.
+
+## Media Management
+- Configure proper storage providers.
+- Implement image optimization middlewares.
+- Use responsive images with multiple formats.
+- Create custom upload providers if needed.
+
+## Database
+- Use database transactions for data integrity.
+- Create database indexes for frequently queried fields.
+- Use lifecycle hooks (beforeCreate, afterCreate, etc.).
+- Implement robust error handling for DB operations.
+
+## GraphQL
+- Define custom GraphQL resolvers when needed.
+- Use fragments for reusable queries.
+- Implement caching strategies to improve performance.
+- Create custom GraphQL types for advanced use cases.
+
+## Performance
+- Enable response compression.
+- Implement caching for static content.
+- Use pagination for large data sets.
+- Optimize database queries with indexes and filters.
+
+## Security
+- Keep Strapi updated to the latest version.
+- Configure proper CORS settings.
+- Implement rate limiting or request throttling.
+- Use Content Security Policy (CSP) headers.
+
+## Deployment
+- Use environment variables for configuration.
+- Configure proper logging and monitoring.
+- Set up database backups and migrations.
+- Use PM2, Docker, or similar solutions for process management.
+- Integrate CI/CD pipelines for automated tests and deployments.
+
+## Reference
+- Official docs: https://docs.strapi.io
+- Dev docs: https://docs.strapi.io/dev-docs/intro

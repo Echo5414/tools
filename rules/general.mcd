@@ -5,90 +5,108 @@ alwaysApply: true
 
 # Project Instructions
 
-- Use specification and guidelines as you build the app.
-- Write the complete code for every step. Do not get lazy.
-- Your goal is to completely finish whatever I ask for.
-- Don't improve code that isn’t related to what I asked for.
+- Follow the specifications and guidelines carefully as you build the app.
+- Write complete code for each step — no shortcuts or skipping.
+- Your goal is to fully complete every task I request.
+- Avoid modifying code that isn’t directly related to what I’ve asked for.
 
-## Overview
+## Code Style
+- Use consistent indentation (2 spaces).
+- Keep line length under 100 characters.
+- Use meaningful variable and function names.
+- Follow single responsibility principle.
+- Comment complex logic, not obvious code.
+- Use kebab case for all files and folders unless otherwise specified.
+- Leverage linters (ESLint, Prettier) for consistent formatting and style.
 
-This is a web app template.
+## Functions
+- Keep functions small and focused on a single task.
+- Avoid side effects when possible.
+- Use pure functions where appropriate.
+- Limit parameter count (≤3 ideally).
+- Consider using functional programming patterns when beneficial.
 
-## Tech Stack
+## Variables
+- Use `const` by default, `let` when necessary.
+- Avoid global variables.
+- Initialize variables close to their usage.
+- Use descriptive, intention-revealing names.
 
-- Frontend: SvelteKit, Svelte, Tailwind, Shadcn, Framer Motion
-- Backend: Postgres, Supabase, Drizzle ORM, Server Actions
-- Auth: Clerk
-- Payments: Stripe
-- Analytics: PostHog
-- Deployment: Vercel
+## Error Handling
+- Always catch and handle exceptions appropriately.
+- Provide meaningful error messages.
+- Fail fast and explicitly.
+- Don’t swallow errors silently.
+- Log errors for visibility and debugging.
 
-## Project Structure
+## System Architecture & Design
+- **Modularity**: Create self-contained components with clear responsibilities.
+- **Encapsulation**: Hide implementation details behind well-defined interfaces.
+- **Scalability**: Design systems that can grow without requiring complete refactoring.
+- **Flexibility**: Allow for extension without modification (Open/Closed Principle).
+- **Resource Management**: Consider memory, CPU, and storage constraints.
+- **State Management**: Define clear state transitions and avoid global state.
+- **Dependency Management**: Use dependency injection and inversion of control.
 
-- `actions` - Server actions
-  - `db` - Database related actions
-  - Other actions
-- `app` - Next.js app router
-  - `api` - API routes
-  - `route` - An example route
-    - `_components` - One-off components for the route
-    - `layout.tsx` - Layout for the route
-    - `page.tsx` - Page for the route
-- `components` - Shared components
-  - `ui` - UI components
-  - `utilities` - Utility components
-- `db` - Database
-  - `schema` - Database schemas
-- `lib` - Library code
-  - `hooks` - Custom hooks
-- `prompts` - Prompt files
-- `public` - Static assets
-- `types` - Type definitions
+## SOLID Principles
+- **Single Responsibility**: Each class/module should have one reason to change.
+- **Open/Closed**: Open for extension, closed for modification.
+- **Liskov Substitution**: Subtypes must be substitutable for their base types.
+- **Interface Segregation**: Many specific interfaces are better than one general interface.
+- **Dependency Inversion**: Depend on abstractions, not concretions.
 
-## Rules
+## Performance
+- Optimize after functionality is complete.
+- Profile before optimizing.
+- Cache expensive operations.
+- Minimize DOM manipulations.
+- Consider time and space complexity.
+- Use modern profiling tools for deeper analysis.
 
-Follow these rules when building the app.
+## Security
+- Validate all input data.
+- Sanitize output to prevent XSS.
+- Use parameterized queries to prevent SQL injection.
+- Follow least privilege principle.
+- Implement proper authentication and authorization.
+- Keep dependencies updated with security patches.
 
-### General Rules
+## Version Control
+- Make atomic commits.
+- Write descriptive commit messages.
+- Use branches for features and fixes.
+- Review code before merging.
+- Tag releases and maintain changelogs for clarity.
 
-- Use `@` to import anything from the app unless otherwise specified
-- Use kebab case for all files and folders unless otherwise specified
-- Don't update shadcn components unless otherwise specified
+## Documentation
+- Document public APIs.
+- Include examples in documentation.
+- Keep documentation up-to-date.
+- Document architectural decisions.
+- Use diagrams for complex systems.
+- Encourage team-wide knowledge sharing with wikis or internal docs.
 
-#### Env Rules
+## Memory Management
+- Use appropriate data structures.
+- Consider object lifecycles.
+- Use smart pointers when available (in C++, Rust).
+- Release resources in reverse order of acquisition.
+- Avoid memory leaks and dangling pointers.
 
-- If you update environment variables, update the `.env.example` file
-- All environment variables should go in `.env.local`
-- Do not expose environment variables to the frontend
-- Use `NEXT_PUBLIC_` prefix for environment variables that need to be accessed from the frontend
-- You may import environment variables in server actions and components by using `process.env.VARIABLE_NAME`
+## Serialization & Data Exchange
+- Choose appropriate serialization formats (JSON, Protocol Buffers, etc.).
+- Consider serialization performance vs. human readability.
+- Validate deserialized data.
+- Version your data formats.
+- Implement error handling for deserialization failures.
 
----
+## Env Rules
+- If you update environment variables, update the `.env.example` file.
+- All environment variables should go in `.env.development` and `.env.production`.
+- Do not expose environment variables to the frontend.
+- Use `SVELTE_PUBLIC_` prefix for environment variables that need to be accessed from the frontend.
+- You may import environment variables in server actions and components by using `process.env.VARIABLE_NAME`.
 
-
-You are an expert in coding and modern web development.
-
-Key Principles
-- Write concise, technical code with accurate Svelte 5 and SvelteKit examples.
-- Leverage SvelteKit's server-side rendering (SSR) and static site generation (SSG) capabilities.
-- Prioritize performance optimization and minimal JavaScript for optimal user experience.
-- Use descriptive variable names and follow Svelte and SvelteKit conventions.
-- Organize files using SvelteKit's file-based routing system.
-
-Code Style and Structure
-- Write concise, technical TypeScript or JavaScript code with accurate examples.
-- Use functional and declarative programming patterns; avoid unnecessary classes except for state machines.
-- Prefer iteration and modularization over code duplication.
-- Structure files: component logic, markup, styles, helpers, types.
-- Follow Svelte's official documentation for setup and configuration: https://svelte.dev/docs
-
-Naming Conventions
-- Use lowercase with hyphens for component files (e.g., `components/auth-form.svelte`).
-- Use PascalCase for component names in imports and usage.
-- Use camelCase for variables, functions, and props.
-
-TypeScript Usage
-- Use TypeScript for all code; prefer interfaces over types.
-- Avoid enums; use const objects instead.
-- Use functional components with TypeScript interfaces for props.
-- Enable strict mode in TypeScript for better type safety.
+## References
+- lean Code by Robert C. Martin: https://www.oreilly.com/library/view/clean-code/9780136083238
+- Twelve-Factor App: https://12factor.net
