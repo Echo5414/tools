@@ -1,0 +1,55 @@
+---
+description: SvelteKit Cursor Rules
+globs: *.svelte
+alwaysApply: false
+---
+# SvelteKit Best Practices
+
+## File Structure
+- Pages should be in `src/routes` following SvelteKit's file-based routing
+- Components should be in `src/lib/components`
+- Stores should be in `src/lib/stores`
+- Types should be in `src/lib/types`
+- Utilities should be in `src/lib/utils`
+
+## Coding Standards
+- Use `$page` store for page data
+- Use `$app/stores` for app stores
+- Use `$app/navigation` for navigation
+- Use `+page.svelte` for UI components
+- Use `+page.server.ts` for server-side code
+- Use `+page.ts` for page data loading
+- Use `+layout.svelte` for layout components
+- Use `+error.svelte` for error pages
+
+## Best Practices
+- Prefer server components for data fetching
+- Use form actions for form submissions
+- Use event delegation for event handling
+- Implement progressive enhancement
+- Use `<svelte:head>` for document head
+- Use `data-sveltekit-preload-data` for preloading
+- Use `<svelte:window>` for window events
+- Use `invalidateAll()` for cache invalidation
+
+## Optimization
+- Use `export const prerender = true` for static pages
+- Use `export const ssr = false` for client-only pages
+- Use `export const csr = false` for server-only pages
+- Import only what you need from `$app/*`
+- Use `$lib` alias for internal imports
+
+https://svelte.dev/llms-full.txt
+
+SvelteKit Official Documentation:  https://svelte.dev/docs/kit
+https://svelte.dev/docs/kit/llms.txt
+
+Creating a project
+```
+npx sv create my-app
+cd my-app
+npm install
+```
+
+Running the project
+`npm run dev`
